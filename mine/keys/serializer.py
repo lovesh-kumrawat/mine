@@ -53,7 +53,7 @@ def serialize(name: str, data: str | dict[str, Any], schemas) -> Base:
 
 def load_schema(data: dict[str, Any]) -> None:
     
-    with open("mine/keys/schemas.py", 'w') as fp:
+    with open(Storage.schema_path, 'w') as fp:
         
         fp.write(
             "# Generated classes for type hints\n"

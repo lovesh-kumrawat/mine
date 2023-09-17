@@ -24,6 +24,6 @@ def init(path: str):
     data: dict[str, Any] = helper.load_json()
     serializer.load_schema(data)
     
-    Storage.save()
+    Storage.config.save()
 
     return data
