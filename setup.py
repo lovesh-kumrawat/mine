@@ -4,18 +4,21 @@ import sys
 import setuptools
 
 
+__py_version__: tuple[int, ...] = (3, 10)
+__py_version_str__: str = '.'.join(map(str, __py_version__))
+
 # Python version check
-if sys.version_info < (3, 8):
-    raise ValueError('This package requires Python 3.8 or newer')
+if sys.version_info < __py_version__:
+    raise ValueError(f"This package requires Python {__py_version_str__} or newer")
 
 
 # Package metadata
 __project__ = "mine-assistant"
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __license__ = "MIT License"
 __name__ = "Lovesh Kumrawat"
 __email__ = "kumrawat.lovesh@gmail.com"
-__url__ = "https://github.com/lovesh-kumrawat/mine.git"
+__url__ = "https://github.com/lovesh-kumrawat/mine"
 __download_url__ = "https://pypi.org/project/mine-assistant/"
 __platforms__ = "ALL"
 
@@ -24,7 +27,7 @@ __classifiers__ = [
     'Intended Audience :: Developers',
     f'License :: OSI Approved :: {__license__}',
     'Operating System :: OS Independent',
-    'Programming Language :: Python :: 3.8',
+    f"Programming Language :: Python :: {__py_version_str__}",
     'Topic :: Software Development'
 ]
 
@@ -59,4 +62,5 @@ setuptools.setup(
     classifiers                   = __classifiers__,
     keywords                      = __keywords__,
     packages                      = setuptools.find_packages(),
+    python_requires               = f">={__py_version_str__}",
 )
